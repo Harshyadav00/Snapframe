@@ -6,6 +6,8 @@ const Post = (props) => {
     const imageUrl = props.imageUrl; // Fix typo: Change props.nickname to props.image
     const caption = props.caption; // Fix typo: Change props.nickanme to props.caption
 
+
+    
     return (
         <article className='Post'>
             <header>
