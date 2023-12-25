@@ -3,20 +3,20 @@ import "./Post.css";
 
 const Post = (props) => {
     const user = props.user;
-    const imageUrl = props.imageUrl; // Fix typo: Change props.nickname to props.image
-    const caption = props.caption; // Fix typo: Change props.nickanme to props.caption
+    const imageUrl = props.imageUrl;
+    const caption = props.caption;
 
 
-    
+
     return (
         <article className='Post'>
             <header>
                 <div className='Post-user'>
                     <div className='Post-user-avatar'>
-                        <img src={user.avatar} alt={"image of "+user.userName} />
+                        <img src={user?.avatar} alt={"image of "+user?.userName} />
                     </div>
                     <div className='Post-user-nickname'>
-                        <span>{user.userName}</span>
+                        <span>{user?.userName}</span>
                     </div>
                 </div>
             </header>
@@ -26,7 +26,7 @@ const Post = (props) => {
                 </div>
             </div>
             <div className='Post-caption'>
-                <strong>{user.userName}</strong> {caption}
+                <strong>{user?.userName}</strong> {caption}
             </div>
         </article>
     );

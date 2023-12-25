@@ -10,6 +10,11 @@
       "StackName": "amplify-instagramclone-dev-210739",
       "StackId": "arn:aws:cloudformation:ap-south-1:223517115431:stack/amplify-instagramclone-dev-210739/6068f340-9dbb-11ee-8749-0a12565552d6",
       "AmplifyAppId": "d1o49ogvo7c3cc"
+    },
+    "categories": {
+      "auth": {
+        "instagramcloneddbb6668": {}
+      }
     }
   }
 }
