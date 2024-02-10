@@ -1,4 +1,19 @@
+body {
+  font-family: "Inter", sans-serif;
+}
 
+a {
+  text-decoration: none;
+}
+
+.row {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.col-md-6 {
+  float: right !important;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -34,11 +49,29 @@
   }
 }
 
-
 /* SignUp.css */
+
+.signin-container {
+  background-color: #fff;
+  padding: 20px;
+  height: 95vh;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
 .signup-container {
   max-width: 400px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.create-post-container {
+  max-width: 70%;
   margin: 0 auto;
   padding: 20px;
   border: 1px solid #ccc;
@@ -47,6 +80,22 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+.social-provider {
+  background-color: #f8f8f8;
+  font-size: 14px;
+  font-weight: 300;
+  padding: 5px;
+  border-radius: 20px;
+  margin: 2px;
+  cursor: pointer;
+}
+
+.social-provider-icon {
+  background-color: #fff;
+  padding: 2px;
+  margin-right: 2px;
+  border-radius: 50%;
+}
 h2 {
   text-align: center;
   color: #333;
@@ -67,18 +116,78 @@ input {
   margin-top: 5px;
   margin-bottom: 10px;
   box-sizing: border-box;
+  background-color: #f8f8f8;
+  border: none;
 }
 
 button {
-  background-color: #007bff;
+  background-color: #000;
   color: #fff;
   padding: 10px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
+  font-weight: 400;
 }
 
-button:hover {
-  background-color: #0056b3;
+.video-container {
+  position: relative;
+  display: inline-block;
+}
+
+.mute-button {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+}
+
+.like-button {
+  background-color: #fff;
+  color: #000;
+  font-size: 24px;
+}
+
+.comments {
+  padding: 20px;
+}
+
+.comments-data {
+  padding: 10px;
+}
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  min-height: 100vh !important;
+  z-index: 100;
+  padding: 48px 0 0;
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.1);
+}
+#sidebar-wrapper {
+  min-height: 100vh !important;
+  width: 100vw;
+  margin-left: -1rem;
+  -webkit-transition: margin 0.25s ease-out;
+  -moz-transition: margin 0.25s ease-out;
+  -o-transition: margin 0.25s ease-out;
+  transition: margin 0.25s ease-out;
+}
+#sidebar-wrapper .sidebar-heading {
+  padding: 0.875rem 1.25rem;
+  font-size: 1.2rem;
+}
+
+#page-content-wrapper {
+  min-width: 0;
+  width: 100%;
 }

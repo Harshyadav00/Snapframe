@@ -1,47 +1,54 @@
 // AuthContext.js
-import React, { createContext, useContext, useState, useEffect } from 'react';
-import { fetchAuthSession, signIn, signOut, signUp } from 'aws-amplify/auth'; // Import Auth directly
-import { useNavigate } from 'react-router-dom';
+import React, { createContext, useContext, useState, useEffect } from "react";
+import {
+  fetchAuthSession,
+  signIn,
+  signOut,
+  signUp,
+  getCurrentUser,
+} from "aws-amplify/auth"; // Import Auth directly
+import { useNavigate } from "react-router-dom";
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const navigate = useNavigate() ;
-
+  const navigate = useNavigate();
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    checkUser(); 
+    checkUser();
   }, []);
 
   const checkUser = async () => {
     try {
-      const userData = await fetchAuthSession();
+      const userData = await getCurrentUser();
       setUser(userData);
       console.log(userData);
     } catch (error) {
       setUser(null);
+      console.log(error);
     }
   };
 
   const SignIn = async (username, password) => {
     try {
       await signIn({ username: username, password: password });
-      
+
       checkUser();
       // navigate("/explore")
     } catch (error) {
-      console.error('Error signing in:', error);
+      console.error("Error signing in:", error);
     }
   };
 
   const SignOut = async () => {
     try {
-      console.log('Sign out');
+      console.log("Sign out");
       await signOut();
       setUser(null);
+      navigate("/signIn");
     } catch (error) {
-      console.error('Error signing out:', error);
+      console.error("Error signing out:", error);
     }
   };
 
@@ -51,9 +58,9 @@ export const AuthProvider = ({ children }) => {
         username,
         password,
       });
-      console.log('Sign-up successful');
+      console.log("Sign-up successful");
     } catch (error) {
-      console.error('Error signing up:', error);
+      console.error("Error signing up:", error);
     }
   };
 
