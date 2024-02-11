@@ -10,6 +10,10 @@ import UserDetails from "./pages/user/UserDetails";
 import { Amplify } from "aws-amplify";
 import awsmobile from "./aws-exports";
 import CreatePost from "./pages/CreatePost";
+import Sidebar from "./components/Sidebar";
+import ForgotPassword from "./pages/ForgotPassword";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsAndConditions from "./pages/TermsAndConditions";
 
 Amplify.configure(awsmobile);
 
@@ -18,13 +22,16 @@ function App() {
     <Router>
       <AuthProvider>
         <div>
-          {/* <Header /> */}
+          <Sidebar />
           <Routes>
             <Route path="/signUp" element={<SignUp />} />
             <Route path="/signIn" element={<SignIn />} />
             <Route indes path="/explore" element={<Explore />} />
             <Route path="/create" element={<CreatePost />} />
+            <Route path="/forgotpassword" element={<ForgotPassword />} />
             <Route path="/user/:id" element={<UserDetails />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/terms-conditions" element={<TermsAndConditions />} />
           </Routes>
         </div>
       </AuthProvider>

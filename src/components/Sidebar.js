@@ -9,6 +9,13 @@ import {
 } from "cdbreact";
 import { NavLink } from "react-router-dom";
 import { useAuth } from "../AuthContext";
+import {
+  Add,
+  ExitToApp,
+  Explore,
+  Portrait,
+  Settings,
+} from "@mui/icons-material";
 
 const Sidebar = () => {
   const { user, SignOut } = useAuth();
@@ -25,47 +32,46 @@ const Sidebar = () => {
       {user ? (
         <CDBSidebar textColor="#000" backgroundColor="#F8F8F8">
           <CDBSidebarHeader prefix={<i className="fa fa-bars fa-large"></i>}>
-            <a
-              href="/"
-              className="text-decoration-none"
-              style={{ color: "inherit" }}
-            >
-              Sidebar
+            <a className="text-decoration-none" style={{ color: "inherit" }}>
+              <img src="/images/snapframe-logo.svg" height="20px" alt="logo" />
             </a>
           </CDBSidebarHeader>
 
           <CDBSidebarContent className="sidebar-content">
             <CDBSidebarMenu>
-              <NavLink exact to="/explore" activeClassName="activeClicked">
-                <CDBSidebarMenuItem icon="columns">Explore</CDBSidebarMenuItem>
+              <NavLink exact to="/create" activeClassName="activeClicked">
+                <CDBSidebarMenuItem>
+                  <Add /> New Post
+                </CDBSidebarMenuItem>
               </NavLink>
               <NavLink
                 exact
                 to={`/user/${user?.userId}`}
                 activeClassName="activeClicked"
               >
-                <CDBSidebarMenuItem icon="table">Account</CDBSidebarMenuItem>
-              </NavLink>
-              <NavLink exact onClick={SignOut} activeClassName="activeClicked">
-                <CDBSidebarMenuItem icon="chart-line">
-                  Sign Out
+                <CDBSidebarMenuItem>
+                  <Portrait /> Account
                 </CDBSidebarMenuItem>
               </NavLink>
-
-              <NavLink
-                exact
-                to="/hero404"
-                target="_blank"
-                activeClassName="activeClicked"
-              >
-                <CDBSidebarMenuItem icon="exclamation-circle">
-                  404 page
+              <NavLink exact to="/explore" activeClassName="activeClicked">
+                <CDBSidebarMenuItem>
+                  <Explore /> Explore
+                </CDBSidebarMenuItem>
+              </NavLink>
+              <NavLink exact to="#" activeClassName="activeClicked">
+                <CDBSidebarMenuItem>
+                  <Settings /> Update Profile
+                </CDBSidebarMenuItem>
+              </NavLink>
+              <NavLink exact onClick={SignOut} activeClassName="activeClicked">
+                <CDBSidebarMenuItem>
+                  <ExitToApp /> Sign Out
                 </CDBSidebarMenuItem>
               </NavLink>
             </CDBSidebarMenu>
           </CDBSidebarContent>
 
-          <CDBSidebarFooter style={{ textAlign: "center" }}>
+          {/* <CDBSidebarFooter style={{ textAlign: "center" }}>
             <div
               style={{
                 padding: "20px 5px",
@@ -80,7 +86,7 @@ const Sidebar = () => {
             >
               Designed By Mohit
             </div>
-          </CDBSidebarFooter>
+          </CDBSidebarFooter> */}
         </CDBSidebar>
       ) : (
         <></>

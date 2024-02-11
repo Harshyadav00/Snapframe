@@ -3,16 +3,22 @@ import React, { useState, useEffect } from "react";
 import { useAuth } from "../AuthContext";
 import "../App.css";
 import { Link, useNavigate } from "react-router-dom";
-import { FaGoogle, FaApple } from "react-icons/fa";
+import { IconButton, Input, InputAdornment } from "@mui/material";
+import { Visibility, VisibilityOff } from "@mui/icons-material";
 
 function SignIn() {
   const navigate = useNavigate();
   const { SignIn, user } = useAuth();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
   const signIn = async () => {
     SignIn(username, password);
+  };
+
+  const toggleShowPassword = () => {
+    setShowPassword(!showPassword);
   };
 
   useEffect(() => {
@@ -20,6 +26,10 @@ function SignIn() {
       navigate("/explore");
     }
   }, [user]);
+
+  const handleMouseDownPassword = (e) => {
+    e.preventDefault();
+  };
 
   return (
     <div
@@ -50,11 +60,25 @@ function SignIn() {
                 />
 
                 <label htmlFor="password">Password</label>
-                <input
-                  type="password"
-                  id="password"
-                  onChange={(e) => setPassword(e.target.value)}
-                />
+                <div className="d-flex flex-row">
+                  <input
+                    type={showPassword ? "text" : "password"}
+                    id="password"
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
+                  <div
+                    style={{
+                      backgroundColor: " #f8f8f8",
+                      marginTop: "5px",
+                      marginBottom: "10px",
+                    }}
+                    className="d-flex justify-content-center align-items-center px-1"
+                    onClick={toggleShowPassword}
+                    onMouseDown={handleMouseDownPassword}
+                  >
+                    {!showPassword ? <Visibility /> : <VisibilityOff />}
+                  </div>
+                </div>
 
                 <Link
                   style={{
@@ -63,7 +87,7 @@ function SignIn() {
                     color: "#000",
                     margin: "20px",
                   }}
-                  to="#"
+                  to="/forgotPassword"
                 >
                   Forgotton your password?
                 </Link>

@@ -60,19 +60,9 @@ const Explore = () => {
 
   return (
     <div style={{ textAlign: "center" }}>
-      <div className="container-fluid">
+      <div className="container-fluid p-5 ">
         <div className="row">
-          <div className="col-2">
-            <Button>
-              <Link
-                style={{ color: "white", textDecoration: "none" }}
-                to="/create"
-              >
-                Upload Image
-              </Link>
-            </Button>
-          </div>
-          <div className="col-10">
+          <div className="col-8">
             {posts ? (
               posts.map((post) => (
                 <Post

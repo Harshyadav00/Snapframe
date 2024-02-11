@@ -5,6 +5,7 @@ import "../App.css";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useAuth } from "../AuthContext";
+import { Visibility, VisibilityOff } from "@mui/icons-material";
 
 function SignUp() {
   const { user } = useAuth();
@@ -13,10 +14,18 @@ function SignUp() {
   const [email, setEmail] = useState("");
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
   const [otp, setOtp] = useState("");
   const [userId, setUserId] = useState();
   const [isSignUpComplete, setIsSignUpComplete] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+
+  const toggleShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
+
+  const handleMouseDownPassword = (e) => {
+    e.preventDefault();
+  };
 
   useEffect(() => {
     if (user) {
@@ -53,7 +62,7 @@ function SignUp() {
   const handleSignUp = async () => {
     try {
       // Validate fields before submitting
-      if (!name || !email || !userName || !password || !confirmPassword) {
+      if (!name || !email || !userName || !password) {
         console.error("Please fill in all fields");
 
         return;
@@ -159,13 +168,26 @@ function SignUp() {
 
                   {/* Ask for Password */}
                   <label htmlFor="password">Password </label>
-                  <input
-                    required
-                    type="password"
-                    id="password"
-                    onChange={(e) => setPassword(e.target.value)}
-                  />
-
+                  <div className="d-flex flex-row">
+                    <input
+                      required
+                      type={showPassword ? "text" : "password"}
+                      id="password"
+                      onChange={(e) => setPassword(e.target.value)}
+                    />
+                    <div
+                      style={{
+                        backgroundColor: " #f8f8f8",
+                        marginTop: "5px",
+                        marginBottom: "10px",
+                      }}
+                      className="d-flex justify-content-center align-items-center px-1"
+                      onClick={toggleShowPassword}
+                      onMouseDown={handleMouseDownPassword}
+                    >
+                      {!showPassword ? <Visibility /> : <VisibilityOff />}
+                    </div>
+                  </div>
                   <div
                     style={{
                       textAlign: "center",
@@ -176,7 +198,7 @@ function SignUp() {
                   >
                     By signing up, you agree to our
                     <Link
-                      to="/signUp"
+                      to="/terms-conditions"
                       style={{
                         margin: "0px 2px",
                         color: "#000",
@@ -187,7 +209,7 @@ function SignUp() {
                     </Link>
                     &
                     <Link
-                      to="/signUp"
+                      to="/privacy-policy"
                       style={{
                         margin: "0px 2px",
                         color: "#000",
