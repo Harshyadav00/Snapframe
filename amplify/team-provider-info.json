@@ -1,20 +1,15 @@
 {
   "dev": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-instagramclone-dev-210739-authRole",
-      "UnauthRoleArn": "arn:aws:iam::223517115431:role/amplify-instagramclone-dev-210739-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::223517115431:role/amplify-instagramclone-dev-210739-authRole",
+      "AuthRoleName": "amplify-snapframe-dev-95759-authRole",
+      "UnauthRoleArn": "arn:aws:iam::223517115431:role/amplify-snapframe-dev-95759-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::223517115431:role/amplify-snapframe-dev-95759-authRole",
       "Region": "ap-south-1",
-      "DeploymentBucketName": "amplify-instagramclone-dev-210739-deployment",
-      "UnauthRoleName": "amplify-instagramclone-dev-210739-unauthRole",
-      "StackName": "amplify-instagramclone-dev-210739",
-      "StackId": "arn:aws:cloudformation:ap-south-1:223517115431:stack/amplify-instagramclone-dev-210739/6068f340-9dbb-11ee-8749-0a12565552d6",
-      "AmplifyAppId": "d1o49ogvo7c3cc"
-    },
-    "categories": {
-      "auth": {
-        "instagramcloneddbb6668": {}
-      }
+      "DeploymentBucketName": "amplify-snapframe-dev-95759-deployment",
+      "UnauthRoleName": "amplify-snapframe-dev-95759-unauthRole",
+      "StackName": "amplify-snapframe-dev-95759",
+      "StackId": "arn:aws:cloudformation:ap-south-1:223517115431:stack/amplify-snapframe-dev-95759/1917cb90-c95f-11ee-8613-0278cc084aa7",
+      "AmplifyAppId": "d2pohcoiti7if5"
     }
   }
 }

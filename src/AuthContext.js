@@ -1,12 +1,6 @@
 // AuthContext.js
 import React, { createContext, useContext, useState, useEffect } from "react";
-import {
-  fetchAuthSession,
-  signIn,
-  signOut,
-  signUp,
-  getCurrentUser,
-} from "aws-amplify/auth"; // Import Auth directly
+import { signIn, signOut, signUp, getCurrentUser } from "aws-amplify/auth";
 import { useNavigate } from "react-router-dom";
 
 const AuthContext = createContext();
