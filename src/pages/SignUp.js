@@ -199,6 +199,7 @@ function SignUp() {
                     By signing up, you agree to our
                     <Link
                       to="/terms-conditions"
+                      target="_blank"
                       style={{
                         margin: "0px 2px",
                         color: "#000",
@@ -210,6 +211,7 @@ function SignUp() {
                     &
                     <Link
                       to="/privacy-policy"
+                      target="_blank"
                       style={{
                         margin: "0px 2px",
                         color: "#000",
