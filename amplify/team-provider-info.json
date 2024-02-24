@@ -10,6 +10,16 @@
       "StackName": "amplify-snapframe-dev-95759",
       "StackId": "arn:aws:cloudformation:ap-south-1:223517115431:stack/amplify-snapframe-dev-95759/1917cb90-c95f-11ee-8613-0278cc084aa7",
       "AmplifyAppId": "d2pohcoiti7if5"
+    },
+    "categories": {
+      "auth": {
+        "snapframe23d0024e": {
+          "userPoolId": "ap-south-1_LAdkFpjdJ",
+          "userPoolName": "snapframe",
+          "webClientId": "4b4a9cieorvcqgekg7cpal6tdh",
+          "nativeClientId": "4b4a9cieorvcqgekg7cpal6tdh"
+        }
+      }
     }
   }
 }

@@ -87,7 +87,7 @@ function SignIn() {
                     color: "#000",
                     margin: "20px",
                   }}
-                  to="/forgotPassword"
+                  to="/forgot-password"
                 >
                   Forgotton your password?
                 </Link>

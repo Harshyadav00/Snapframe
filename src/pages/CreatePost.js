@@ -69,7 +69,11 @@ const CreatePost = () => {
               type={selectedFile.name.split(/[#?]/)[0].split(".").pop().trim()}
             />
           )}
-          <Form.Control type="file" onChange={handleFileInputChange} />
+          <Form.Control
+            type="file"
+            accept="image/jpeg, image/png, image/gif"
+            onChange={handleFileInputChange}
+          />
         </Form.Group>
         <button type="submit" onClick={handleSubmit}>
           Create Post

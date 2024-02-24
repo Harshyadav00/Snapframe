@@ -1,5 +1,10 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 import { AuthProvider } from "./AuthContext";
 import Header from "./components/Header";
 import Explore from "./pages/Explore";
@@ -24,11 +29,12 @@ function App() {
         <div>
           <Sidebar />
           <Routes>
+            <Route path="/" element={<Navigate to="/explore" />} />
             <Route path="/signUp" element={<SignUp />} />
             <Route path="/signIn" element={<SignIn />} />
             <Route indes path="/explore" element={<Explore />} />
             <Route path="/create" element={<CreatePost />} />
-            <Route path="/forgotpassword" element={<ForgotPassword />} />
+            <Route path="/forgot-password" element={<ForgotPassword />} />
             <Route path="/user/:id" element={<UserDetails />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms-conditions" element={<TermsAndConditions />} />
