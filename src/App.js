@@ -19,6 +19,7 @@ import Sidebar from "./components/Sidebar";
 import ForgotPassword from "./pages/ForgotPassword";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsAndConditions from "./pages/TermsAndConditions";
+import Developer from "./components/Developer";
 
 Amplify.configure(awsmobile);
 

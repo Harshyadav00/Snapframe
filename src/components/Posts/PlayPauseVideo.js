@@ -26,7 +26,7 @@ const PlayPauseVideo = (prop) => {
         autoPlay
         muted
         loop
-        height="350px"
+        height="30vw"
         width="100%"
         src={prop.prop.src}
       ></video>

@@ -10,7 +10,11 @@ const MediaContent = (prop) => {
         <img
           src={prop.src}
           alt={prop.type}
-          style={{ maxHeight: "300px", maxWidth: "300px" }}
+          style={{
+            height: `${prop.height}`,
+            width: `${prop.width}`,
+            border: "1px black solid",
+          }}
         />
       );
     } else {
