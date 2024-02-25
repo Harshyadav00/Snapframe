@@ -30,7 +30,12 @@ const Sidebar = () => {
       }}
     >
       {user ? (
-        <CDBSidebar toggled="false" textColor="#000" backgroundColor="#F8F8F8">
+        <CDBSidebar
+          toggled="false"
+          textColor="#000"
+          backgroundColor="#F8F8F8"
+          style={{ zIndex: "10000" }}
+        >
           <CDBSidebarHeader prefix={<i className="fa fa-bars fa-large"></i>}>
             <a className="text-decoration-none" style={{ color: "inherit" }}>
               <img src="/images/snapframe-logo.svg" height="20px" alt="logo" />

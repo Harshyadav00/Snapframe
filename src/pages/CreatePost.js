@@ -3,15 +3,24 @@ import { useAuth } from "../AuthContext";
 import MediaContent from "../components/MediaContent";
 import { Form } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 
 const CreatePost = () => {
   const navigate = useNavigate();
   const { user } = useAuth();
   const [caption, setCaption] = useState("");
   const [selectedFile, setSelectedFile] = useState(null);
+  const [selectedName, setSelectedName] = useState("");
 
-  const handleFileInputChange = (e) => {
-    setSelectedFile(e.target.files[0]);
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+    if (file.size > 5242880) {
+      alert("Please select a file less than 5mb  ");
+      return;
+    }
+    setSelectedFile(file);
+    setSelectedName(file.name);
+    // Additional validation logic
   };
 
   useEffect(() => {
@@ -52,8 +61,8 @@ const CreatePost = () => {
   };
 
   return (
-    <div>
-      <Form className="create-post-container">
+    <div style={{ paddingLeft: "50px", paddingTop: "1px" }}>
+      <Form className="create-post-container my-5 ">
         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
           <Form.Label>Caption</Form.Label>
           <Form.Control
@@ -69,14 +78,15 @@ const CreatePost = () => {
               type={selectedFile.name.split(/[#?]/)[0].split(".").pop().trim()}
             />
           )}
-          <Form.Control
-            type="file"
-            accept="image/jpeg, image/png, image/gif"
-            onChange={handleFileInputChange}
-          />
+          <div className="file-upload">
+            <CloudUploadIcon fontSize="large" />
+            <h3> {selectedName || "Drag & Drop or Click to upload"}</h3>
+            <p>Maximun file size 5mb</p>
+            <input type="file" onChange={handleFileChange} />
+          </div>
         </Form.Group>
         <button type="submit" onClick={handleSubmit}>
-          Create Post
+          Upload
         </button>
       </Form>
     </div>

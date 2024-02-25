@@ -47,9 +47,9 @@ const UserDetails = () => {
   };
 
   return (
-    <div>
+    <div className="p-5 ">
       {userDetails ? (
-        <div className="m-4 " style={{ paddingLeft: "4rem" }}>
+        <div style={{ paddingLeft: "4rem" }}>
           <Container>
             <Row className="m-3">
               <div className="d-flex align-items-center  col-sm-4 col-md-3">
